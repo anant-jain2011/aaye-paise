@@ -16,7 +16,7 @@ document.onload = async () => {
 
 const eventSource = new EventSource("/events");
 
-eventSource.onmessage((e) => {
+eventSource.addEventListener("message", (e) => {
     const block = document.createElement("div");
     block.style.backgroundColor = colors[Math.floor(Math.random() * 3 + 1)];
     block.innerText = e.data.message;

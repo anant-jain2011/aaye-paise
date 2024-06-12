@@ -24,7 +24,7 @@ const blockSchema = new Mongoose.Schema({
 const Block = new Mongoose.model("Block", blockSchema);
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://aayepaise.vercel.app');
+    res.header('Access-Control-Allow-Origin', 'https://aaye-paise.onrender.com');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     next();
@@ -53,7 +53,7 @@ app.get('/events', (req, res) => {
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
-    res.setHeader('Access-Control-Allow-Origin', 'https://aayepaise.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://aaye-paise.onrender.com/');
 
     res.flushHeaders();
 

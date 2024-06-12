@@ -14,13 +14,15 @@ document.onload = async () => {
     })
 }
 
-const eventSource = new EventSource("/events");
+if (!window.eventSource) {
+    window.eventSource = new EventSource("/events");
 
-eventSource.addEventListener("message", (e) => {
-    const block = document.createElement("div");
-    block.style.backgroundColor = colors[Math.floor(Math.random() * 3 + 1)];
-    block.innerText = e.data.message;
-    block.classList.add("block");
+    window.eventSource.addEventListener("message", (e) => {
+        const block = document.createElement("div");
+        block.style.backgroundColor = colors[Math.floor(Math.random() * 3)];
+        block.innerText = e.data;
+        block.classList.add("block");
 
-    document.body.appendChild(block);
-});
+        document.body.appendChild(block);
+    });
+}
